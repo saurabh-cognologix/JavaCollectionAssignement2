@@ -1,16 +1,14 @@
 package JavaCollectionAssignment2.question10;
-
+class Node{
+    int data;
+    Node previous;
+    Node next;
+    Node(int d){
+        data = d;
+    }
+}
 public class Test10 {
     Node head;
-    class Node{
-        int data;
-        Node previous;
-        Node next;
-        Node(int d){
-            data = d;
-        }
-    }
-
     // add a node in front part of doubly linked list
     public  void push(int data){
         Node new_Node = new Node(data);
