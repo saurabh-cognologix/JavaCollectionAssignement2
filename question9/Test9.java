@@ -2,7 +2,7 @@ package JavaCollectionAssignment2.question9;
 
 import java.util.*;
 public class Test9 {
-    public static void checkAnagram(String st,List<String> list) {
+    public void checkAnagram(String st,List<String> list) {
         boolean flag = true;
         st = st.toLowerCase();
         char arr2[] = st.toCharArray();
@@ -24,8 +24,9 @@ public class Test9 {
 
     }
     public static void main(String[] args) {
+        Test9 obj = new Test9();
         String st = "listen";
         List<String> names = List.of("Enlists","google","inlets","banana");
-         checkAnagram(st,names);
+         obj.checkAnagram(st,names);
     }
 }
