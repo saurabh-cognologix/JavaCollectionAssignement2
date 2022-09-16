@@ -8,25 +8,35 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-public class Test6 {
-    static class VoterData{
-        private int id;
-        private int vote;
+class VoterData{
+     Integer id;
+     Integer vote;
 
-        public VoterData(int id, int vote) {
-            this.id = id;
-            this.vote = vote;
-        }
 
-        public void getCandidateById(String[] st){
-            if(this.vote < Integer.parseInt(st[3].trim())){
-                this.vote = Integer.parseInt(st[3].trim());
-                this.id = Integer.parseInt(st[0].trim());
-            }
+    public VoterData(Integer id, Integer vote) {
+        this.id = id;
+        this.vote = vote;
+    }
+
+    public void getCandidateById(String[] st){
+        if(this.vote < Integer.parseInt(st[3].trim())){
+            this.vote = Integer.parseInt(st[3].trim());
+            this.id = Integer.parseInt(st[0].trim());
         }
     }
-    static Map<String, VoterData> tempMap = new HashMap<>();
-    public static void splitEmployeeData(ArrayList<String> arrayList){
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+}
+public class Test6 {
+
+     Map<String, VoterData> tempMap = new HashMap<>();
+    public  void splitEmployeeData(ArrayList<String> arrayList){
         for(String token : arrayList){
             String[] arr = token.split(",");
             if( tempMap.containsKey(arr[2].trim())){
@@ -49,9 +59,10 @@ public class Test6 {
         }catch (IOException ex){
             System.out.println("File not found");
         }
-        System.out.println(inputList);
-        splitEmployeeData((ArrayList<String>) inputList);
-        System.out.println(tempMap.get("Aundh").id);
-        System.out.println(tempMap.get("Baner").id);
+       // System.out.println(inputList);
+        Test6 objTest6 = new Test6();
+        objTest6.splitEmployeeData((ArrayList<String>) inputList);
+        System.out.println(objTest6.tempMap.get("Aundh").id);
+        System.out.println(objTest6.tempMap.get("Baner").id);
     }
 }
