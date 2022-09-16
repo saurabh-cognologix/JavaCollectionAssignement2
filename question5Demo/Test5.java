@@ -6,26 +6,27 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class Test5 {
-    static class Empl{
-        long salary;
-        String id;
+class Empl{
+    long salary;
+    String id;
 
-        public Empl(String  salary, String id) {
-            this.salary = Long.parseLong(salary.trim());
-            this.id = id.trim();
-        }
-
-        public  void setEmployeeById(String str[]){
-            if(this.salary<Long.parseLong(str[3].trim())){
-                this.salary = Long.parseLong(str[3]);
-                this.id = str[0].trim();
-            }
-        }
-
+    public Empl(String  salary, String id) {
+        this.salary = Long.parseLong(salary.trim());
+        this.id = id.trim();
     }
-    static Map<String, Empl> tempMap = new HashMap<>();
-    public static void splitEmployeeData(ArrayList<String> arrayList){
+
+    public  void setEmployeeById(String str[]){
+        if(this.salary<Long.parseLong(str[3].trim())){
+            this.salary = Long.parseLong(str[3]);
+            this.id = str[0].trim();
+        }
+    }
+
+}
+public class Test5 {
+
+    Map<String, Empl> tempMap = new HashMap<>();
+    public  void splitEmployeeData(ArrayList<String> arrayList){
             for(String token : arrayList){
                 String[] arr = token.split(",");
                 // 0 index position --> ID
@@ -62,9 +63,10 @@ public class Test5 {
         }catch (IOException ex){
             System.out.println("file is not found");
         }
-        splitEmployeeData((ArrayList<String>) inputData);
-        System.out.println(tempMap.get("Engineering").id);
-        System.out.println(tempMap.get("Testing").id);
+        Test5 splitEmployeeData = new Test5();
+        splitEmployeeData.splitEmployeeData((ArrayList<String>) inputData);
+        System.out.println(splitEmployeeData.tempMap.get("Engineering").id);
+        System.out.println(splitEmployeeData.tempMap.get("Testing").id);
 
     }
 
