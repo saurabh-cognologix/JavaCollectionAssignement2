@@ -5,23 +5,24 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+ class StudentMarks{
+    private int id;
+    private int marks;
 
-public class Test4 {
-    static class StudentMarks{
-        private int id;
-        private int marks;
-
-        public StudentMarks(int id, int marks) {
-            this.id = id;
-            this.marks = marks;
-        }
-
-
+    public StudentMarks(int id, int marks) {
+        this.id = id;
+        this.marks = marks;
     }
 
-    static List<Integer> idList= new ArrayList<>();
+
+}
+
+public class Test4 {
+
+
+   List<Integer> idList= new ArrayList<>();
    // static int minmumId = 0;
-    public static void splitStudentMarks(ArrayList<String> arrayList){
+    public  void splitStudentMarks(ArrayList<String> arrayList){
         for(String token : arrayList){
             String[] arr = token.split(",");
             idList.add(Integer.parseInt(arr[0].trim()));
@@ -55,7 +56,7 @@ public class Test4 {
             System.out.println("File not Found");
         }
         //System.out.println(inputList);
-
-        splitStudentMarks((ArrayList<String>) inputList);
+        Test4 obj = new Test4();
+        obj.splitStudentMarks((ArrayList<String>) inputList);
     }
 }
